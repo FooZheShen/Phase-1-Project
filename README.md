@@ -12,7 +12,7 @@ Microsoft sees all the big companies creating original video content, and they w
 
 ***
 Questions to consider:
-* Is movie making money? Yes, more movie making money than losing money
+* Is making movies profitable? 
     few chart show result by number of moive, budget, gross.
 * What type movie making more money? What's the genre, duration(how long), budget, studio, director and writer, actor. experienc, etc.
 * What are the business's pain points related to this project? Total lack of direction
@@ -49,8 +49,9 @@ After the initial exploration of the datasets, I have selected 3 datasets:
 * tn.movie_budgets.csv
 ***
 Those datasets were selected based on:
-*Relevance.
-*Target variables: Average ratings, genres, movie budget, and movie gross.
+* completeness.
+* Relevance.
+* Target variables: Average ratings, genres, movie budget, movie gross.
 ***
 
 
@@ -66,6 +67,29 @@ Questions to consider:
  * We examined many different slices of the data and visualizations until we found significant results. Discovering and fixing data cleaning and quality issues ended up changing our results significantly from the start to the end of the analysis process, so it's hard to say what modelling changes had a large impact.
 * Why are these choices appropriate given the data and the business problem?
  * Microsoft has a lot of capital, but also lots of other expenses. We analyzed the data with multiple target variables in mind to enable them to make a good decision no matter how much capital they want to invest, how profitable their other investment opportunities are, or how much they think their movie studio's brand might influence the "Microsoft" brand (for better or worse).
+***
+***
+## Analysis Findings
+Is movie making profitable?:
+* Short answer is yes, but other variables should be taken into consideration.
+* There are huge risks to making movies, more than 47% of the movies analyzed are not profitable in a domestic setting.
+* And 21.67% of movies listed flopped even after considering worldwide gross.
+* Other variables such as marketing costs which were not included in this analysis, might change how profitable the movies we analyzed are.
+  
+Overall making movies can be profitable, but to ensure the continued success of our future movie studio,
+we should consider how movies are rated.
+* We find that most movies made were bad, less than 30% of movies made are rated "Average"
+and only less than 2% are considered good movies.
+
+To find out what makes a good movie, we analyzed the top 10 most successful movies in movie grossing.
+
+* What type movie making more money? What's the genre, duration(how long), budget, studio, director and writer, actor. experienc, etc.
+* What are the business's pain points related to this project? Total lack of direction
+* How did you pick the data analysis question(s) that you did? Microsoft definitely has plenty of money to jump in on the big budget movies immediately, but without knowing the quality of their other investment opportunities and given they have an exisitng brand that is very valuable, I wanted to present a balanced approach that considers ROI, total profit, and also "quality".
+* Why are these questions important from a business perspective? 
+ * ROI is important to decide which movie making ventures make sense to fund vs. using the money in other Microsoft projects. 
+ * Total profit is important in understanding the total amount of money that can be made making movies.
+ * Vote average may be important to Microsoft's brand, depending on how clearly the movie studio is associated with the parent company. Being associated with cheap or low quality things may damage Microsoft overall, even if the movies make them more money.
 ***
 
 
