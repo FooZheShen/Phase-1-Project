@@ -49,8 +49,8 @@ After the initial exploration of the datasets, I have selected 3 datasets:
    * tn.movie_budgets.csv
 ***
 Those datasets were selected based on:
-    *Relevance
-    *Target variables: Average ratings, genres, movie budget, and movie gross
+*Relevance
+*Target variables: Average ratings, genres, movie budget, and movie gross
 ***
 
 
