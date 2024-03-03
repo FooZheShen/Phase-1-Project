@@ -4,6 +4,8 @@
 
 ## 1.0 - Overview
 
+![alt text](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/images/360_F_347601547_I7pY3Mqyt1ewRJx7RUx8URCnIpYSQmLY.jpg)
+
 This report helps to explore what makes a movie successful. We analyze the relationship between movie ratings, movie genres, as well as their total grossing, to identify what are the popular movie genres and to be able to set a target expectation of returns in gross for the first movie produced by Microsoft Cinema.
 ***
 ## 2.0 - Business Problem
@@ -39,7 +41,6 @@ Those datasets were selected based on:
 * completeness.
 * Relevance.
 * Target variables: Average ratings, genres, movie budget, movie gross.
-***
 
 3.2 Data Cleaning and Preparation
 --
@@ -75,7 +76,7 @@ After the merge, we found that duplicate movies but different genre values are a
 We repeated all processes above for a final check to ensure a complete dataframe to be exported into a CSV file for analysis.
 
 The code and script used for the data preparation can be found here:
-[Data Prepartion](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_preparation%20.ipynb)
+[Data Preparation](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_preparation%20.ipynb)
 
 ***
 ## 6.0 - Analysis Findings
@@ -139,7 +140,7 @@ We should also gather more information on potential actors and crew members such
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_analysis.ipynb) or our [presentation]().
+Please review our full analysis in [Data Analysis](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_analysis.ipynb) or our [presentation]().
 
 
 
