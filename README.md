@@ -1,133 +1,141 @@
-# Microsoft Movie Studio
+# Microsoft Cinema
 
 **Author**: Foo ZheShen
 
-## Overview
+## 1.0 - Overview
 
-This repo helps to explore relationships between runtime, budget, genre, TMDB average vote score, and ROI. The best movies for optimizing ROI are short, low budget horror/thriller movies. These tend to have lower reviews however.The best movies for optimizing vote score and total profit are long, high budget, Action/SciFi or Action/Adventure movies. These still have ROI much higher than average movie, but may require expensive IP. Short, high budget, Animation/Adventure/Comedy movies also do very well according to all three metrics (ROI, total profit, and vote score)
-
-## Business Problem
-
-Microsoft sees all the big companies creating original video content, and they want to get in on the fun. They have decided to create a new movie studio, but the problem is they don’t know anything about creating movies. They have hired you to help them better understand the movie industry. Your team is charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
-
+This report helps to explore what makes a movie successful. We analyze the relationship between movie ratings, movie genres, as well as their total grossing, to identify what are the popular movie genres and to be able to set a target expectation of returns in gross for the first movie produced by Microsoft Cinema.
 ***
-Questions to consider:
+## 2.0 - Business Problem
+
+Microsoft sees all the big companies creating original video content, and they want to get in on the fun. They have decided to create a new movie studio, but the problem is they don’t know anything about creating movies. 
+
+To help better understand the movie industry, our team is charged with exploring what types of films are currently doing the best at the box office. We then translate those findings into actionable insights that the head of Microsoft's new movie studio, Microsoft Cineman, can use to help decide what type of films to create.
+
+2.1. Questions to consider:
+--
 * Is making movies profitable? 
-    few chart show result by number of moive, budget, gross.
-* What type movie making more money? What's the genre, duration(how long), budget, studio, director and writer, actor. experienc, etc.
-* What are the business's pain points related to this project? Total lack of direction
-* How did you pick the data analysis question(s) that you did? Microsoft definitely has plenty of money to jump in on the big budget movies immediately, but without knowing the quality of their other investment opportunities and given they have an exisitng brand that is very valuable, I wanted to present a balanced approach that considers ROI, total profit, and also "quality".
-* Why are these questions important from a business perspective? 
- * ROI is important to decide which movie making ventures make sense to fund vs. using the money in other Microsoft projects. 
- * Total profit is important in understanding the total amount of money that can be made making movies.
- * Vote average may be important to Microsoft's brand, depending on how clearly the movie studio is associated with the parent company. Being associated with cheap or low quality things may damage Microsoft overall, even if the movies make them more money.
+* Popular movie genres?
+* Movie budget and target gross?
 ***
+## 3.0 - Data Exploration and Preparation
 
-
-## Data Exploration
-
-In the folder zippedData in the associated GitHub repository are movie datasets from:
+In the folder zippedData in the associated GitHub repository are movie datasets we gathered from:
 
    * Box Office Mojo
    * IMDB
    * Rotten Tomatoes
    * TheMovieDB.org
 
-***
-Questions to consider:
-* Where did the data come from, and how do they relate to the data analysis questions?
-* What does the data represent? What is in the sample and what variables are included?
-* What are the target variables? 
-* What are the properties of the variables you intend to use?
-***
-## Data Preparation
-
-After the initial exploration of the datasets, I have selected 3 datasets:
+3.1. Dataset selection criteria
+--
+After the initial exploration of the datasets, we have selected 3 datasets:
 
 * imdb.title.basics.csv
 * imdb.title.ratings.csv
 * tn.movie_budgets.csv
-***
+
 Those datasets were selected based on:
 * completeness.
 * Relevance.
 * Target variables: Average ratings, genres, movie budget, movie gross.
 ***
 
+3.2 Data Cleaning and Preparation
+--
+The datasets we chose contain thousands of movies and their respective information.
+The first step before any analysis can be conducted would be to clean the datasets.
 
-## Methods
+3.2.1 Dealing with missing values
 
-Describe and justify the process for analyzing or modeling the data.
+Movies with incomplete values or 0 values in budget or grossing are dropped from the dataset as those movies might not be mainstream popular nor would have gross earnings of significance and therefore could be dropped without worrying about significantly altering the analysis.
+
+3.2.2 Dealing with duplicates
+
+Next, we identify duplicated movies listed. There could be multiple movies with the same name but are different movies altogether produced by different studios. 
+
+Imdb datasets:
+ * We can identify the duplicates by comparing the original title and the year released.
+
+ Tn Movie Budget:
+ * Duplicates are identified using the production budget and movie gross as keys.
+
+3.2.3 Data Normalization 
+
+The dataset from *tn.movie_budgets.csv contains important information on production budget and movie gross which is essential for this analysis report. Those columns are cleaned from any commas and $ signs and converted to int.
+
+
+
+3.2.4 Master Dataframe
+
+After the preparation phase, we combined all 3 datasets into 1 Master dataframe.
+
+After the merge, we found that duplicate movies but different genre values are also an issue, leaving those duplicates in would skew the analysis findings. To remove duplicates, we created a separate dataframe and we considered the number of votes as the key to drop the rows from the Master dataframe since it can be considered that the duplicate with a lower number of votes would be held with a lower opinion.
+
+We repeated all processes above for a final check to ensure a complete dataframe to be exported into a CSV file for analysis.
+
+The code and script used for the data preparation can be found here:
+[Data Prepartion][]
 
 ***
-Questions to consider:
-* How did you analyze or model the data?
- * Perform regressions on ROI vs genre, runtime, and budget, identify the optimal choices, and repeat using other metrics until we come to a full recommendation on what type of move to make.
-* How did you iterate on your initial approach to make it better?
- * We examined many different slices of the data and visualizations until we found significant results. Discovering and fixing data cleaning and quality issues ended up changing our results significantly from the start to the end of the analysis process, so it's hard to say what modelling changes had a large impact.
-* Why are these choices appropriate given the data and the business problem?
- * Microsoft has a lot of capital, but also lots of other expenses. We analyzed the data with multiple target variables in mind to enable them to make a good decision no matter how much capital they want to invest, how profitable their other investment opportunities are, or how much they think their movie studio's brand might influence the "Microsoft" brand (for better or worse).
-***
-***
-## Analysis Findings
-Is movie making profitable?:
-* Short answer is yes, but other variables should be taken into consideration.
-* There are huge risks to making movies, more than 47% of the movies analyzed are not profitable in a domestic setting.
-* And 21.67% of movies listed flopped even after considering worldwide gross.
+## 6.0 - Analysis Findings
+
+6.1. Is movie making profitable?:
+--
+* The short answer is yes, but other variables should be taken into consideration.
+* But there are huge risks to making movies, more than 47% of the movies analyzed are not profitable in a domestic setting.
+* And 21.67% of movies listed flopped even after considering worldwide grossing.
 * Other variables such as marketing costs which were not included in this analysis, might change how profitable the movies we analyzed are.
   
 Overall making movies can be profitable, but to ensure the continued success of our future movie studio,
-we should consider how movies are rated.
-* We find that most movies made were bad, less than 30% of movies made are rated "Average"
+we should consider how the movies are rated and which genres are most popular.
+* We find that most movies made were rated as bad, less than 30% of movies made are rated "Average"
 and only less than 2% are considered good movies.
 
-To find out what makes a good movie, we analyzed the top 10 most successful movies in movie grossing.
+6.2. Movie Gross and Genre Combination
+--
+To find out what makes a good movie, we analyzed the top 10 most successful movies in movie grossing as well as their average ratings.
 
-* What type movie making more money? What's the genre, duration(how long), budget, studio, director and writer, actor. experienc, etc.
-* What are the business's pain points related to this project? Total lack of direction
-* How did you pick the data analysis question(s) that you did? Microsoft definitely has plenty of money to jump in on the big budget movies immediately, but without knowing the quality of their other investment opportunities and given they have an exisitng brand that is very valuable, I wanted to present a balanced approach that considers ROI, total profit, and also "quality".
-* Why are these questions important from a business perspective? 
- * ROI is important to decide which movie making ventures make sense to fund vs. using the money in other Microsoft projects. 
- * Total profit is important in understanding the total amount of money that can be made making movies.
- * Vote average may be important to Microsoft's brand, depending on how clearly the movie studio is associated with the parent company. Being associated with cheap or low quality things may damage Microsoft overall, even if the movies make them more money.
-***
-
-
-## Evaluation
-Evaluate how well your work solves the stated business problem.
+Top 10 Grossing Movies and Their Genre Combinations
+* The mean worldwide gross is close to $1.43 billion.
+* 8 out of the top 10 movies contain genres Action and Adventure both making up 26.7% respectively of the 9 identified individual genres.
+* Genre combinations classified as Adventure, Action, and Sci-Fi make up 60% of the Top 10 movies.
+* The mean worldwide gross is close to $1.43 billion, with the mentioned genre combination dominating above other combinations.
 
 ***
-Questions to consider:
-* How do you interpret the results?
- * We identified movie types that vastly outperform average movies on all key metrics, which is a great result for shaping studio policy.
-* How well does your model fit your data? How much better is this than your baseline model?
- * We don't have real "models" yet. Summary statistics indicate our recommendations should increase expected profit, ROI, and vote average beyond making generic movie.
-* How confident are you that your results would generalize beyond the data you have?
- * Very confident.
-* How confident are you that this model would benefit the business if put into use?
- * Very confident.
-***
+## 7.0 - Evaluation
 
+7.1. Budget and Profit Targets
+--
+For the final evaluation, we can set expected targets for the production budget and target gross for what we want to achieve for a successful movie release.
 
-## Conclusions
-Provide your conclusions about the work you've done, including any limitations or next steps.
+* Production Budget: $22,000,000
+* Target Domestic Gross: $527,000,000
+* Target Worldwide Gross: $1,430,000,000
+  
+7.2. Recommended Movie Genre
+--
+To be successful and competitive in this colossal movie industry, we have to create a mark for Microsoft Cinema by having a successful first movie produced as the new and upcoming studio. 
 
-***
-Questions to consider:
-*“Middle of the Road” movies are the worst across all metrics: 
-** Make a low-budget (for best ROI) or high budget (for best profit, best ratings, good ROI) movie, not a middle budget movie
-** Make a movie that is either long or short, not medium length
-* Pick Genre that suits budget and length:
- * Horror/Thriller for Low Budget/Short Movies
- * Sci-Fi/Thriller for High Budget/Long Movies
-* Intellectual Property seems important for successful High Budget/Long Movies
- * We did not fully explore this relationship due to limited data about IP costs; would recommend obtaining this data and re-analyzing
- * Acquire movie rights for comic book superheroes or popular books.
-* Further Research
- * We can help analyze directors/writers/actors within a certain genre/budget/runtime once you make a decision!
+From the analysis findings we gather, I recommend the following as a guide to what kind of movie the studio should produce:
+* Two genres, Action and Adventure have demonstrated consistent success over the last decade in amassing the most amount of gross earnings.
+* Sci-fi as a third movie genre is a safe option as 60% of the highest-grossing movies have those 3 combinations.
+  
+If the studio wishes to pursue other movie genre combinations;
+* Other genres such as animation, comedy, and fantasy can be substituted with Sci-Fi.
 
-***
+Until we can identify which genre the studio can specialize in. 
+* It is highly recommended that the studio have both Action and Adventure or at least one of them in the movie genre combination as a first release.
 
+7.3. Future & Further Analysis
+--
+This report does not include several variables for the gathering of the gross earnings of the movies listed in the datasets which may have a high impact on the total earnings of a movie released.
+Variables for further analysis should include:
+* Marketing cost
+* Sponsorships
+* Royalties
+
+We should also gather more information on potential actors and crew members such as directors and take into consideration how they may affect movie popularity and ratings for future analysis.
 
 ## For More Information
 
@@ -135,20 +143,4 @@ Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-M
 
 For any additional questions, please contact **Mengyu Jackson & mengyujackson121@gmail.com**
 
-## Repository Structure
 
-Describe the structure of your repository and its contents, for example:
-
-```
-├── __init__.py                               <- .py file that signals to python these folders contain packages
-├── README.md                                 <- The top-level README for reviewers of this project
-├── dsc-phase1-project-MengyuJ                <- Narrative documentation of analysis in Jupyter notebook
-├── Flatiron_DS_P1_Presentation_MengyuJ.pdf   <- PDF version of project presentation
-├── code
-│   ├── __init__.py                           <- .py file that signals to python these folders contain packages
-│   ├── visualizations.py                     <- .py script to create finalized versions of visuals for project
-│   ├── data_preparation.py                   <- .py script used to pre-process and clean data
-│   └── eda_notebook.ipynb                    <- Un-used
-├── data                                      <- Both sourced externally and generated from code
-└── images                                    <- Both sourced externally and generated from code
-```
