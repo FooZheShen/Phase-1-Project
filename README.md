@@ -75,7 +75,7 @@ After the merge, we found that duplicate movies but different genre values are a
 We repeated all processes above for a final check to ensure a complete dataframe to be exported into a CSV file for analysis.
 
 The code and script used for the data preparation can be found here:
-[Data Prepartion][]
+[Data Prepartion][(https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_preparation%20.ipynb)
 
 ***
 ## 6.0 - Analysis Findings
@@ -139,7 +139,7 @@ We should also gather more information on potential actors and crew members such
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./Project 1/Code/Data_analysis.ipynb) or our [presentation](./Flatiron_DS_P1_Presentation_MengyuJ).
+Please review our full analysis in [our Jupyter Notebook](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_analysis.ipynb) or our [presentation]().
 
 
 
