@@ -140,7 +140,9 @@ We should also gather more information on potential actors and crew members such
 
 ## For More Information
 
-Please review our full analysis in [Data Analysis](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_analysis.ipynb) or our [presentation]().
+Please review the full analysis in [Data Analysis](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_analysis.ipynb) or the [presentation](https://github.com/FooZheShen/Phase-1-Project/blob/main/Movie%20Studio%20Analysis%20Presentation.pdf).
+
+Thank you!!!
 
 
 
