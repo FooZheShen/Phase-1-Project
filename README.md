@@ -75,7 +75,7 @@ After the merge, we found that duplicate movies but different genre values are a
 We repeated all processes above for a final check to ensure a complete dataframe to be exported into a CSV file for analysis.
 
 The code and script used for the data preparation can be found here:
-[Data Prepartion][(https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_preparation%20.ipynb)
+[Data Prepartion](https://github.com/FooZheShen/Phase-1-Project/blob/main/Project%201/Code/Data_preparation%20.ipynb)
 
 ***
 ## 6.0 - Analysis Findings
