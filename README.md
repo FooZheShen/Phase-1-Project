@@ -139,8 +139,8 @@ We should also gather more information on potential actors and crew members such
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-MengyuJ.ipynb) or our [presentation](./Flatiron_DS_P1_Presentation_MengyuJ).
+Please review our full analysis in [our Jupyter Notebook](./Project 1/Code/Data_analysis.ipynb) or our [presentation](./Flatiron_DS_P1_Presentation_MengyuJ).
 
-For any additional questions, please contact **Mengyu Jackson & mengyujackson121@gmail.com**
+
 
 
