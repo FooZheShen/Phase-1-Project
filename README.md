@@ -20,7 +20,7 @@ To help better understand the movie industry, our team is charged with exploring
 * Popular movie genres?
 * Movie budget and target gross?
 ***
-## 3.0 - Data Exploration and Preparation
+## 3.0 - Data Exploration
 
 In the folder zippedData in the associated GitHub repository are movie datasets we gathered from:
 
